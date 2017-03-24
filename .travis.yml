@@ -3,5 +3,5 @@ python: "3.5"
 install: pip install coveralls
 script:
   - python -m unittest discover
-  - covergae run --source= -m unittest discover
+  - coverage run --source= -m unittest discover
 after_success: coveralls
