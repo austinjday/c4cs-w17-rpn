@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import operator
+from termcolor import colored
 
 OPERATORS = {
 	'+': operator.add,
@@ -30,7 +31,12 @@ def calculate(arg):
 
 def main():
 	while True:
-		result = calculate(input('rpn calc> '))
+		prompt = colored('rpn calc> ', 'green', attrs=['underline'])
+		result = calculate(input(prompt))
+		if result < 0:
+			result = colored(result, 'red', attrs=['bold'])
+		if result == 100:
+			result = colored(result, 'yellow', attrs=['blink'])
 		print("Result:", result)
 
 if __name__ == '__main__':
